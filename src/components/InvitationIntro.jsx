@@ -16,7 +16,7 @@ export function EnvelopeArt({ compact = false }) {
   </div>;
 }
 
-export default function InvitationIntro({ children, onComplete, autoOpen = false }) {
+export default function InvitationIntro({ children, onComplete, onOpen, autoOpen = false }) {
   const [phase, setPhase] = useState('sealed');
   const stage = useRef(null);
   const button = useRef(null);
@@ -55,6 +55,7 @@ export default function InvitationIntro({ children, onComplete, autoOpen = false
   async function open() {
     if (running.current) return;
     running.current = true;
+    onOpen?.();
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       onComplete();
       return;
@@ -99,7 +100,14 @@ export default function InvitationIntro({ children, onComplete, autoOpen = false
     }
   }
 
-  return <div className={`invitation-intro intro-${phase}`} ref={stage} tabIndex="-1" role="dialog" aria-modal="true" aria-labelledby="intro-title" onKeyDown={event => { if (event.key === 'Tab') { event.preventDefault(); button.current?.focus(); } }}>
+  return <div className={`invitation-intro intro-${phase}`} ref={stage} tabIndex="-1" role="dialog" aria-modal="true" aria-labelledby="intro-title" onKeyDown={event => {
+    if (event.key !== 'Tab') return;
+    const controls = [...stage.current.querySelectorAll('button:not([disabled])')];
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (document.activeElement === stage.current || (event.shiftKey && document.activeElement === first)) { event.preventDefault(); (event.shiftKey ? last : first)?.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+  }}>
     <div className="intro-atmosphere">
       <div className="intro-border" aria-hidden="true"/>
       <div className="intro-dust" aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <i key={index} style={{ '--dust-i': index, left: `${7 + (index * 31) % 87}%`, top: `${8 + (index * 23) % 82}%` }}/>)}</div>

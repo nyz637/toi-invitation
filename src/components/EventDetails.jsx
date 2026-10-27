@@ -34,7 +34,7 @@ function Countdown() {
 
   return <section className="countdown-section section" id="countdown" aria-labelledby="countdown-title">
     <div className="countdown-content reveal">
-      <span className="eyebrow">АЛТЫН СӘТ ЖАҚЫНДАП КЕЛЕДІ</span>
+      <span className="eyebrow">МЕРЕЙЛІ СӘТ ЖАҚЫНДАП КЕЛЕДІ</span>
       <h2 id="countdown-title">Мерейтойға <em>дейін</em></h2>
       {remaining.started
         ? <p className="countdown-started" role="status">Мерейтой басталды!</p>

@@ -7,7 +7,7 @@ export function EnvelopeArt({ compact = false }) {
     <div className="lux-envelope__object">
       <div className="lux-envelope__back" />
       <div className="lux-envelope__hinge"><div className="lux-envelope__flap-front"/><div className="lux-envelope__flap-back"/></div>
-      <div className="lux-envelope__paper"><span className="lux-paper__ornament">◇</span><span>Алтын мерейтой</span><strong>Құрметті<br/>қонақтар!</strong><i>Нұрман Нұғманұлы</i></div>
+      <div className="lux-envelope__paper"><span className="lux-paper__ornament">◇</span><span>50 жас мерейтойы</span><strong>Құрметті<br/>қонақтар!</strong><i>Нұрман Нұғманұлы</i></div>
       <div className="lux-envelope__pocket"><svg viewBox="0 0 360 220" preserveAspectRatio="none"><defs><linearGradient id={compact ? 'pocket-small' : 'pocket-intro'} x2="0.8" y2="1"><stop stopColor="#24211b"/><stop offset=".5" stopColor="#100f0c"/><stop offset="1" stopColor="#1c1914"/></linearGradient></defs><path d="M0 0 180 123 360 0V220H0Z" fill={`url(#${compact ? 'pocket-small' : 'pocket-intro'})`} stroke="#b7974e" strokeOpacity=".65"/><path d="m0 220 148-110m212 110L212 110M9 18v192h342V18" fill="none" stroke="#b7974e" strokeOpacity=".3"/></svg></div>
       <div className="lux-envelope__seal"><span>50</span><small>МЕРЕЙТОЙ</small></div>
       <div className="lux-envelope__glint"/>
@@ -111,11 +111,11 @@ export default function InvitationIntro({ children, onComplete, onOpen, autoOpen
     <div className="intro-atmosphere">
       <div className="intro-border" aria-hidden="true"/>
       <div className="intro-dust" aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <i key={index} style={{ '--dust-i': index, left: `${7 + (index * 31) % 87}%`, top: `${8 + (index * 23) % 82}%` }}/>)}</div>
-      <div className="intro-heading"><span className="eyebrow">СІЗГЕ АРНАЛҒАН ЕРЕКШЕ ШАҚЫРУ</span><h2 id="intro-title">Алтын <em>мерейтой</em></h2><p>Нұрман Нұғманұлы</p></div>
+      <div className="intro-heading"><span className="eyebrow">СІЗГЕ АРНАЛҒАН ЕРЕКШЕ ШАҚЫРУ</span><h2 id="intro-title">50 жас <em>мерейтойы</em></h2><p>Нұрман Нұғманұлы</p></div>
       <button ref={button} className="intro-open" onClick={open} aria-label="Шақыруды ашу" aria-disabled={phase !== 'sealed'}>
         <EnvelopeArt/>
         <span className="intro-open__label">Шақыруды ашу <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
-        <span className="intro-open__hint">Алтын сәттің қадірлі қонағы болыңыз</span>
+        <span className="intro-open__hint">Мерейтойдың қадірлі қонағы болыңыз</span>
       </button>
       <span className="intro-date">05 · 12 · 2026</span>
     </div>

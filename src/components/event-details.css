@@ -1,0 +1,87 @@
+.venue-section { padding-top: 0; padding-bottom: 65px; }
+.venue-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 70px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.venue-heading h2 { margin-top: 18px; }
+.venue-ornament { color: #b5914c; font: 32px var(--serif); }
+.venue-card {
+  position: relative;
+  padding: 32px;
+  border: 1px solid #b9944b55;
+  background: linear-gradient(135deg, #a37c2810, transparent 70%), #14110c;
+  box-shadow: 0 15px 45px #0002;
+}
+.venue-card::before, .venue-card::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  border-color: #cfad65;
+  border-style: solid;
+}
+.venue-card::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.venue-card::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+.venue-card-top { display: flex; align-items: center; gap: 14px; color: #bba36c; }
+.venue-card-top > svg { width: 25px; height: 32px; flex-shrink: 0; stroke: currentColor; stroke-width: 1.2; }
+.venue-card-top > span:not(.venue-card-line) { font-size: 8px; letter-spacing: .18em; }
+.venue-card-line { height: 1px; flex: 1; background: #a3803a44; }
+.venue-name { margin: 24px 0 18px; font: 400 60px/.95 var(--serif); color: var(--light-gold); }
+.venue-name > span { display: block; margin-top: 10px; font: italic 26px var(--serif); color: #e6d5b3; }
+.venue-card address { max-width: 310px; font-style: normal; font-size: 12px; line-height: 1.9; color: #c4b295; }
+.venue-map { width: 100%; gap: 14px; justify-content: space-between; margin-top: 28px; padding-inline: 19px; font-size: 11px; }
+.venue-map > svg { width: 19px; height: 19px; flex-shrink: 0; stroke: currentColor; stroke-width: 1.2; }
+.countdown-section { padding-top: 35px; padding-bottom: 95px; text-align: center; }
+.countdown-content { max-width: 740px; margin: 0 auto; }
+.countdown-content > .eyebrow { font-size: 8px; }
+.countdown-content h2 { font-size: clamp(38px, 5.5vw, 60px); margin: 16px 0 35px; }
+.countdown-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 25px 7px 20px;
+  border: 1px solid #c5a05245;
+  background: radial-gradient(ellipse at 50% 0, #c39d3920, transparent 75%), #100e0a;
+  box-shadow: inset 0 0 0 4px #a77f1d06;
+}
+.countdown-number {
+  display: block;
+  font: 500 clamp(38px, 6vw, 74px)/1 var(--serif);
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: -.035em;
+  color: var(--light-gold);
+  text-shadow: 0 0 24px #d4af3720;
+  animation: countdown-tick .4s ease-out both;
+}
+.countdown-label { color: #b9a477; font-size: 9px; letter-spacing: .13em; margin-top: 13px; }
+.countdown-date { margin-top: 25px; font-size: 11px; line-height: 1.9; color: #c4b295; }
+.countdown-date > span { display: block; color: #9f8c68; font-size: 9px; letter-spacing: .06em; }
+.countdown-started { padding: 36px 15px; border-block: 1px solid #c5a05245; color: var(--light-gold); font: italic clamp(31px, 5vw, 46px) var(--serif); }
+@keyframes countdown-tick { from { opacity: .4; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 700px) {
+  .venue-section { padding-top: 0; padding-bottom: 40px; }
+  .venue-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .venue-heading { text-align: center; }
+  .venue-heading h2 { font-size: 46px; }
+  .venue-heading .short-line, .venue-ornament { display: none; }
+  .venue-card { width: 100%; max-width: 390px; margin: auto; padding: 26px 23px; }
+  .venue-name { font-size: 58px; }
+  .venue-map { padding-inline: 14px; font-size: 10px; gap: 10px; }
+  .countdown-section { padding-top: 25px; padding-bottom: 65px; }
+  .countdown-content h2 { font-size: 39px; margin-bottom: 26px; }
+  .countdown-grid { gap: 8px; }
+  .countdown-unit { padding: 21px 4px 17px; }
+  .countdown-number { font-size: clamp(36px, 10vw, 45px); }
+  .countdown-label { font-size: 8px; letter-spacing: .04em; margin-top: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .countdown-number { animation: none; }
+}
